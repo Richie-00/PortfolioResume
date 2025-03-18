@@ -73,6 +73,7 @@ function CatFactPage({ onClose }: { onClose: () => void }) {
         </button>
       </motion.div>
     </motion.div>
+
   );
 }
 

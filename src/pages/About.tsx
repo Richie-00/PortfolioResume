@@ -1,11 +1,14 @@
 import Navigation from "../components/Navigation";
 import { FaDownload } from "react-icons/fa";
 import { motion } from "framer-motion";
+import loading from "../components/Loading"
 
 
 function About() {
+
   return (
     <div className="bg-gray-900 min-h-screen">
+      loading
       <Navigation />
       
       <motion.section 

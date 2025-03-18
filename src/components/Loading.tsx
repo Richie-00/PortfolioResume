@@ -1,6 +1,6 @@
-import { useEffect, useState} from "react"
-import { motion, useAnimation } from 'framer-motion';
-import { FaSpinner } from 'react-icons/fa';
+import { useEffect, useState } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { FaSpinner } from "react-icons/fa";
 
 function Loading() {
   const controls = useAnimation();
@@ -10,36 +10,37 @@ function Loading() {
     const sequence = async () => {
       await controls.start({
         rotate: 360,
+        scale: [1, 1.2, 1], // Smooth scale effect
         transition: {
           duration: 1.5,
-          ease: [0.68, -0.55, 0.265, 1.55],
+          ease: "easeInOut",
           repeat: Infinity,
-          repeatType: 'loop',
+          repeatType: "loop",
         },
       });
     };
 
     sequence();
 
-    // Simulate DOM loading completion. In a real scenario, replace this with your actual logic.
+    // Simulate loading delay (adjust as needed)
     const timeoutId = setTimeout(() => {
       setIsLoading(false);
-    }, 5000); // Adjust delay as needed
+    }, 3000);
 
     return () => clearTimeout(timeoutId);
-
   }, [controls]);
 
-  if (!isLoading) {
-    return null; // Don't render anything if not loading.
-  }
+  if (!isLoading) return null; // Hide when loading is done
 
   return (
-    <nav className="p-4 m-2 rounded-2xl h-18 flex justify-center items-center bg-black text-white text-lg">
-      <motion.div animate={controls}>
-        <FaSpinner size={30} />
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
+      <motion.div
+        className="p-6 rounded-full bg-gradient-to-r from-blue-500 to-pink-500 shadow-lg"
+        animate={controls}
+      >
+        <FaSpinner size={40} className="text-white" />
       </motion.div>
-    </nav>  
+    </div>
   );
 }
 

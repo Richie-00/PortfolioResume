@@ -7,7 +7,6 @@ import FlappyBird from "../components/FlappyBird";
 import { FaCat, FaGamepad } from "react-icons/fa";
 import { isMobile, isTablet } from "react-device-detect";
 
-
 interface Project {
   name: string;
   component: (onClose: () => void) => React.ReactElement;
@@ -67,20 +66,27 @@ const Projects: React.FC = () => {
                   onClick={() => !isDisabled && setActiveProject(project)}
                   whileHover={{ scale: isDisabled ? 1 : 1.05 }}
                   whileTap={{ scale: isDisabled ? 1 : 0.95 }}
-                  className={`cursor-pointer bg-gray-700 p-4 rounded-lg flex items-center gap-4 shadow-md transition-all ${
+                  className={`relative cursor-pointer bg-gray-700 p-4 rounded-lg flex items-center gap-4 shadow-md transition-all ${
                     isDisabled
-                      ? "opacity-50 cursor-not-allowed"
+                      ? "opacity-70 cursor-not-allowed relative"
                       : "hover:shadow-lg"
                   }`}
                 >
                   {project.icon}
-                  <span className="text-white text-lg font-semibold">
+                  <span className={`text-white text-lg font-semibold ${isDisabled ? "opacity-50" : ""}`}>
                     {project.name}
                   </span>
+
+                  {/* Show "Coming Soon" for disabled projects */}
                   {isDisabled && (
-                    <span className="text-red-500 text-sm">
-                      (Disabled on mobile/tablet)
-                    </span>
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center rounded-lg text-white text-sm font-semibold"
+                    >
+                      Coming Soon
+                    </motion.div>
                   )}
                 </motion.div>
               );

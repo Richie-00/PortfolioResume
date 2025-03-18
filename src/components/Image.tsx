@@ -5,36 +5,48 @@ import SnakeGame from "../components/SnakeGame";
 import Game2048 from "../components/Game2048";
 import FlappyBird from "../components/FlappyBird";
 import { FaCat, FaGamepad } from "react-icons/fa";
+import { isMobile, isTablet } from "react-device-detect";
 
-// Projects List (Fixed `component` key typo)
-const projects = [
-  { 
-    name: "Cat Fact App", 
-    component: (onClose: () => void) => <CatFactPage onClose={onClose} />, 
-    icon: <FaCat size={40} className="text-blue-400" /> 
+
+interface Project {
+  name: string;
+  component: (onClose: () => void) => React.ReactElement;
+  icon: React.ReactElement;
+  isGame: boolean;
+}
+
+const projects: Project[] = [
+  {
+    name: "Cat Fact App",
+    component: (onClose) => <CatFactPage onClose={onClose} />,
+    icon: <FaCat size={40} className="text-blue-400" />,
+    isGame: false,
   },
-  { 
-    name: "Snake Game", 
-    component: (onClose: () => void) => <SnakeGame onClose={onClose} />, 
-    icon: <FaGamepad size={40} className="text-green-400" /> 
+  {
+    name: "Snake Game",
+    component: (onClose) => <SnakeGame onClose={onClose} />,
+    icon: <FaGamepad size={40} className="text-green-400" />,
+    isGame: true,
   },
-  { 
-    name: "2048 Game", 
-    component: (onClose: () => void) => <Game2048 onClose={onClose} />, 
-    icon: <FaGamepad size={40} className="text-yellow-400" /> 
+  {
+    name: "2048 Game",
+    component: (onClose) => <Game2048 onClose={onClose} />,
+    icon: <FaGamepad size={40} className="text-yellow-400" />,
+    isGame: true,
   },
-  { 
-    name: "Flappy Bird", 
-    component: (onClose: () => void) => <FlappyBird onClose={onClose} />, 
-    icon: <FaGamepad size={40} className="text-red-400" /> 
-  }
+  {
+    name: "Flappy Bird",
+    component: (onClose) => <FlappyBird onClose={onClose} />,
+    icon: <FaGamepad size={40} className="text-red-400" />,
+    isGame: true,
+  },
 ];
 
-function Projects() {
-  const [activeProject, setActiveProject] = useState<null | { 
-    name: string; 
-    component: (onClose: () => void) => React.ReactElement;
-  }>(null);
+const Projects: React.FC = () => {
+  const [activeProject, setActiveProject] = useState<Project | null>(null);
+
+  // Determine if the device is mobile or tablet
+  const isMobileOrTablet = isMobile || isTablet;
 
   return (
     <div className="bg-gray-900 py-16">
@@ -45,18 +57,34 @@ function Projects() {
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {projects.map((project) => (
-              <motion.div
-                key={project.name}
-                onClick={() => setActiveProject(project)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="cursor-pointer bg-gray-700 p-4 rounded-lg flex items-center gap-4 shadow-md hover:shadow-lg transition-all"
-              >
-                {project.icon}
-                <span className="text-white text-lg font-semibold">{project.name}</span>
-              </motion.div>
-            ))}
+            {projects.map((project) => {
+              // If the project is a game and the device is mobile or tablet, disable it
+              const isDisabled = project.isGame && isMobileOrTablet;
+
+              return (
+                <motion.div
+                  key={project.name}
+                  onClick={() => !isDisabled && setActiveProject(project)}
+                  whileHover={{ scale: isDisabled ? 1 : 1.05 }}
+                  whileTap={{ scale: isDisabled ? 1 : 0.95 }}
+                  className={`cursor-pointer bg-gray-700 p-4 rounded-lg flex items-center gap-4 shadow-md transition-all ${
+                    isDisabled
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:shadow-lg"
+                  }`}
+                >
+                  {project.icon}
+                  <span className="text-white text-lg font-semibold">
+                    {project.name}
+                  </span>
+                  {isDisabled && (
+                    <span className="text-red-500 text-sm">
+                      (Disabled on mobile/tablet)
+                    </span>
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -95,6 +123,6 @@ function Projects() {
       </AnimatePresence>
     </div>
   );
-}
+};
 
 export default Projects;

@@ -111,7 +111,7 @@ function About() {
               className="mt-10 text-center"
             >
               <a
-                href="/Pink-Simple-Modern-Photo-Nursing-Resume_20250317_165853_0000.pdf?url."
+                href="/Pink-Simple-Modern-Photo-Nursing-Resume_20250317_165853_0000(3).pdf?url."
                 download
                 className="relative inline-flex items-center justify-center px-6 py-3 text-lg font-semibold text-white rounded-lg bg-gradient-to-r from-blue-500 to-pink-500 hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg"
               >

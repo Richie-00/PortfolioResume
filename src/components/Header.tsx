@@ -60,7 +60,7 @@ function Header() {
           </div>
 
           {/* ✅ Text Section (70% Width on Large Screens) */}
-          <div className="w-full lg:w-[70%] text-center lg:text-left order-2 lg:order-1 p-10">
+          <div className="w-full lg:w-[70%] text-center lg:text-left order-2 lg:order-1 lg:p-10">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-white flex flex-col sm:flex-row sm:items-center sm:justify-center lg:justify-start">
               <span className="text-white">Hi, I'm&nbsp;</span>
               <div className="relative inline-block text-blue-400 overflow-hidden min-w-0 flex-shrink">

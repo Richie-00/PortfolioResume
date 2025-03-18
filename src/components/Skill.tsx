@@ -29,18 +29,19 @@ function SkillCard() {
   return (
     <div className="bg-gray-900 py-16 px-4">
       <div className="max-w-4xl mx-auto bg-gray-800 rounded-2xl shadow-xl p-6 sm:p-8">
+        
         {/* Title */}
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-6 bg-gradient-to-r from-blue-500 to-pink-500 text-transparent bg-clip-text">
           My Skills
         </h2>
 
-        {/* Tab Navigation */}
-        <div className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-6">
+        {/* Tabs (Single Line, No Wrapping, Scrollable if needed) */}
+        <div className="flex flex-nowrap overflow-auto hide-scrollbar justify-center gap-3 sm:gap-6 mb-6">
           {Object.keys(skills).map((category) => (
             <button
               key={category}
               onClick={() => setActiveTab(category as keyof typeof skills)}
-              className={`relative text-sm sm:text-lg font-semibold px-4 py-2 rounded-lg transition-all duration-300 
+              className={`relative text-sm sm:text-lg font-semibold px-4 py-2 rounded-lg transition-all duration-300 whitespace-nowrap
                 ${activeTab === category ? "text-white bg-gradient-to-r from-blue-500 to-pink-500 shadow-lg" : "text-gray-400 hover:text-white"}
               `}
             >

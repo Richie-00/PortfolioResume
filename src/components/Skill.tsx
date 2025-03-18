@@ -16,7 +16,7 @@ const skills = {
     { name: "Tailwind CSS", icon: <SiTailwindcss size={28} color="#38BDF8" /> },
     { name: "Express.js", icon: <FaNodeJs size={28} color="#000000" /> },
   ],
-  Services: [
+  Database: [
     { name: "MongoDB", icon: <SiMongodb size={28} color="#4DB33D" /> },
     { name: "Firebase", icon: <SiFirebase size={28} color="#FFCA28" /> },
     { name: "REST & GraphQL APIs", icon: <FaDatabase size={28} color="#FF6D00" /> },

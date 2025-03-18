@@ -16,7 +16,6 @@ function Header() {
     const interval = setInterval(() => {
       setCurrentSkillIndex((prevIndex) => (prevIndex + 1) % skills.length);
     }, 3000);
-
     return () => clearInterval(interval);
   }, []);
 
@@ -30,10 +29,10 @@ function Header() {
   return (
     <header className="bg-gray-900 py-16 shadow-md">
       <div className="container mx-auto px-4">
-        <div className="bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 md:p-10 flex flex-col-reverse lg:flex-row items-center gap-6">
+        <div className="bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 md:p-10 flex flex-col lg:flex-row items-center lg:items-start gap-6">
           
-          {/* 📸 Blob + Image (Centered on Mobile, Right on Large Screens) */}
-          <div className="w-full lg:w-[30%] flex justify-center lg:justify-end items-center relative">
+          {/* ✅ Blob + Image (Centered on Mobile, Right on Large Screens) */}
+          <div className="w-full lg:w-[30%] flex justify-center lg:justify-end items-center relative order-1 lg:order-2">
             <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 flex items-center justify-center">
               <svg
                 viewBox="0 0 200 200"
@@ -60,8 +59,8 @@ function Header() {
             </div>
           </div>
 
-          {/* 📝 Text Section (70% Width on Large Screens) */}
-          <div className="w-full lg:w-[70%] text-center lg:text-left">
+          {/* ✅ Text Section (70% Width on Large Screens) */}
+          <div className="w-full lg:w-[70%] text-center lg:text-left order-2 lg:order-1 p-10">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-white flex flex-col sm:flex-row sm:items-center sm:justify-center lg:justify-start">
               <span className="text-white">Hi, I'm&nbsp;</span>
               <div className="relative inline-block text-blue-400 overflow-hidden min-w-0 flex-shrink">
@@ -92,7 +91,7 @@ function Header() {
               <a href="https://github.com/Richie-00" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors duration-300">
                 <FaGithub size={28} />
               </a>
-              <a href="/Pink-Simple-Modern-Photo-Nursing-Resume_20250317_165853_0000.pdf" download className="relative inline-flex items-center justify-center px-5 py-2 text-base sm:text-lg font-medium text-white rounded-lg bg-gradient-to-r from-blue-500 to-pink-500 hover:scale-105 transition-transform duration-300">
+              <a href="/Pink-Simple-Modern-Photo-Nursing-Resume_20250317_165853_0000(3).pdf" download className=" -mt-3 relative inline-flex items-center justify-center px-5 py-2 text-base sm:text-lg font-medium text-white rounded-lg bg-gradient-to-r from-blue-500 to-pink-500 hover:scale-105 transition-transform duration-300">
                 <FaDownload className="mr-2" />
                 Resume
               </a>

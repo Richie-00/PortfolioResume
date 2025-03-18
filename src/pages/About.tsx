@@ -84,7 +84,7 @@ function About() {
                   </p>
                   <p className="text-gray-300 mt-3 text-lg">
                     Infotech College of Arts and Technology <br />
-                    Computer Literature and CSS (Passed - October 2024)
+                    Computer Literacy and CSS (Passed - October 2024)
                   </p>
                 </div>
               </motion.div>

@@ -28,13 +28,13 @@ function Header() {
   };
 
   return (
-    <header className="bg-gray-900 py-20 shadow-md">
+    <header className="bg-gray-900 py-16 shadow-md">
       <div className="container mx-auto px-4">
-        <div className="bg-gray-800 rounded-2xl shadow-lg p-6 md:p-10 flex flex-col lg:flex-row-reverse items-center gap-6">
+        <div className="bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 md:p-10 flex flex-col-reverse lg:flex-row items-center gap-6">
           
-          {/* Blob + Image (30% Width on Large Screens) */}
+          {/* 📸 Blob + Image (Centered on Mobile, Right on Large Screens) */}
           <div className="w-full lg:w-[30%] flex justify-center lg:justify-end items-center relative">
-            <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-60 md:h-60 lg:w-full lg:h-full flex items-center justify-center">
+            <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 flex items-center justify-center">
               <svg
                 viewBox="0 0 200 200"
                 xmlns="http://www.w3.org/2000/svg"
@@ -55,14 +55,14 @@ function Header() {
               <img 
                 src={Richie}
                 alt="Richie"
-                className="absolute w-52 h-52 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 object-cover rounded-full border-4 border-gray-700 shadow-lg"
+                className="absolute w-36 h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 object-cover rounded-full border-4 border-gray-700 shadow-lg"
               />
             </div>
           </div>
 
-          {/* Left Side (Text Section - Takes 70% on Large Screens) */}
+          {/* 📝 Text Section (70% Width on Large Screens) */}
           <div className="w-full lg:w-[70%] text-center lg:text-left">
-            <h1 className="text-3xl sm:text-2xl md:text-4xl font-bold mb-6 text-white flex items-center justify-center lg:justify-start">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-white flex flex-col sm:flex-row sm:items-center sm:justify-center lg:justify-start">
               <span className="text-white">Hi, I'm&nbsp;</span>
               <div className="relative inline-block text-blue-400 overflow-hidden min-w-0 flex-shrink">
                 <AnimatePresence mode="wait">
@@ -80,19 +80,19 @@ function Header() {
                 </AnimatePresence>
               </div>
             </h1>
-            <p className="text-lg md:text-xl mb-6 text-gray-300">
+            <p className="text-base sm:text-lg md:text-xl mb-6 text-gray-300 px-4 sm:px-0">
               I build web experiences that don’t just work—they captivate. From sleek front-end interfaces to powerful back-end systems, I craft seamless, high-performance applications that push boundaries.
             </p>
 
-            {/* Buttons & Socials */}
+            {/* 🔗 Buttons & Socials */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-6">
               <a href="https://web.facebook.com/rylsher0damzzz" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors duration-300">
-                <FaFacebook size={30} />
+                <FaFacebook size={28} />
               </a>
               <a href="https://github.com/Richie-00" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors duration-300">
-                <FaGithub size={30} />
+                <FaGithub size={28} />
               </a>
-              <a href="/Pink-Simple-Modern-Photo-Nursing-Resume_20250317_165853_0000.pdf?url." download className="relative inline-flex items-center justify-center -mt-2 px-5 py-2 text-lg font-medium text-white rounded-lg group bg-gradient-to-r from-blue-500 to-pink-500 hover:scale-105 transition-transform duration-300">
+              <a href="/Pink-Simple-Modern-Photo-Nursing-Resume_20250317_165853_0000.pdf" download className="relative inline-flex items-center justify-center px-5 py-2 text-base sm:text-lg font-medium text-white rounded-lg bg-gradient-to-r from-blue-500 to-pink-500 hover:scale-105 transition-transform duration-300">
                 <FaDownload className="mr-2" />
                 Resume
               </a>

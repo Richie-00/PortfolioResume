@@ -1,7 +1,6 @@
 import Navigation from "../components/Navigation";
 import { FaDownload } from "react-icons/fa";
 import { motion } from "framer-motion";
-import loading from "../components/Loading"
 
 
 function About() {

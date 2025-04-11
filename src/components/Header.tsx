@@ -91,7 +91,7 @@ function Header() {
               <a href="https://github.com/Richie-00" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors duration-300">
                 <FaGithub size={28} />
               </a>
-              <a href="/Pink-Simple-Modern-Photo-Nursing-Resume_20250317_165853_0000(3).pdf" download className=" lg:-mt-3 relative inline-flex items-center justify-center px-5 py-2 text-base sm:text-lg font-medium text-white rounded-lg bg-gradient-to-r from-blue-500 to-pink-500 hover:scale-105 transition-transform duration-300">
+              <a href="/ResumeRichie.pdf" download className=" lg:-mt-3 relative inline-flex items-center justify-center px-5 py-2 text-base sm:text-lg font-medium text-white rounded-lg bg-gradient-to-r from-blue-500 to-pink-500 hover:scale-105 transition-transform duration-300">
                 <FaDownload className="mr-2" />
                 Resume
               </a>
